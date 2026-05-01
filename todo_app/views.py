@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
 from todo_app.models import Todo
 
@@ -12,3 +13,9 @@ def todo_list(request):
         "todo_list.html",
         {"todos": todos},
     )
+
+
+def todo_delete(request, pk):
+    todo = Todo.objects.get(pk=pk)
+    todo.delete()
+    return HttpResponseRedirect("/")

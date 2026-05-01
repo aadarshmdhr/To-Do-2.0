@@ -1,7 +1,21 @@
 <h1>My Todo List</h1>
 
+<a href="">
+  <button>Add Todo</button>
+</a>
+
 {% for todo in todos %}
 
-<p>{{ todo.title }}</p>
+<p>
+  {{ todo.title }}
+
+  <a href="">
+    <button>Edit</button>
+  </a>
+
+  <a href="">
+    <button>Delete</button>
+  </a>
+</p>
 
 {% endfor %}

@@ -19,3 +19,8 @@ def todo_delete(request, pk):
     todo = Todo.objects.get(pk=pk)
     todo.delete()
     return HttpResponseRedirect("/")
+
+
+def todo_create(request):
+    print(request.method, request.POST)
+    return render(request, "todo_create.html")

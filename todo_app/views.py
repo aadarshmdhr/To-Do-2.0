@@ -34,6 +34,7 @@ def todo_update(request, id):
         todo = Todo.objects.get(id=id)
         return render(
             request,
+            "todo_update.html",
             {"todo": todo},
         )
     else:

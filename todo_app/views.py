@@ -22,5 +22,8 @@ def todo_delete(request, pk):
 
 
 def todo_create(request):
-    print(request.method, request.POST)
-    return render(request, "todo_create.html")
+    if request.method == "GET":
+        return render(request, "todo_create.html")
+    else:
+        Todo.objects.create(title=request.POST["title"])
+        return HttpResponseRedirect("/")
